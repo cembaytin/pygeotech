@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygeotech"
+version = "1.4.0"
+description = "A broad, general-purpose geotechnical engineering library: soil mechanics, foundations, seepage/consolidation FEM, slope stability, soil dynamics, rock mechanics and multi-code design."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Cem Baytin" }]
+maintainers = [{ name = "Cem Baytin" }]
+keywords = [
+    "geotechnical-engineering",
+    "soil-mechanics",
+    "foundation-engineering",
+    "finite-element",
+    "consolidation",
+    "bearing-capacity",
+    "slope-stability",
+    "liquefaction",
+    "rock-mechanics",
+    "eurocode-7",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+    "matplotlib>=3.5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.1", "mypy>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/cembaytin/pygeotech"
+Repository = "https://github.com/cembaytin/pygeotech"
+Issues = "https://github.com/cembaytin/pygeotech/issues"
+
+[tool.setuptools.packages.find]
+include = ["pygeotech*"]
+
+[tool.setuptools.package-data]
+pygeotech = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "pygeotech"]
+addopts = "--doctest-modules"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
